@@ -1,0 +1,117 @@
+[
+  {
+    "bundle": "Lilu.kext",
+    "version": "1.7.2",
+    "identifier": "as.vit9696.Lilu"
+  },
+  {
+    "bundle": "AMFIPass.kext",
+    "version": "1.4.1",
+    "identifier": "com.dhinakg.AMFIPass"
+  },
+  {
+    "bundle": "AirportRTW.kext",
+    "version": "2.3.0",
+    "identifier": "com.senmiko.AirportRTW"
+  },
+  {
+    "bundle": "VirtualSMC.kext",
+    "version": "1.3.8",
+    "identifier": "as.vit9696.VirtualSMC"
+  },
+  {
+    "bundle": "AMDRyzenCPUPowerManagement.kext",
+    "version": "0.7.2",
+    "identifier": "wtf.spinach.AMDRyzenCPUPowerManagement"
+  },
+  {
+    "bundle": "ForgedInvariant.kext",
+    "version": "1.5.0",
+    "identifier": "org.ChefKiss.ForgedInvariant"
+  },
+  {
+    "bundle": "ECEnabler.kext",
+    "version": "1.0.6",
+    "identifier": "com.1Revenger1.ECEnabler"
+  },
+  {
+    "bundle": "AppleMCEReporterDisabler.kext",
+    "version": "1.2",
+    "identifier": "org.xlnc.disabler.MCEReporter"
+  },
+  {
+    "bundle": "NootedRed.kext",
+    "version": "0.8.10",
+    "identifier": "org.ChefKiss.NootedRed"
+  },
+  {
+    "bundle": "NVMeFix.kext",
+    "version": "1.1.3",
+    "identifier": "org.acidanthera.NVMeFix"
+  },
+  {
+    "bundle": "RestrictEvents.kext",
+    "version": "1.1.6",
+    "identifier": "as.vit9696.RestrictEvents"
+  },
+  {
+    "bundle": "USBToolBox.kext",
+    "version": "1.2.0",
+    "identifier": "com.dhinakg.USBToolBox.kext"
+  },
+  {
+    "bundle": "Redmi5600HUSBPowerMap.kext",
+    "version": "1.1.0",
+    "identifier": "org.local.Redmi5600H.USBPowerMap"
+  },
+  {
+    "bundle": "VoodooPS2Controller.kext",
+    "version": "2.3.7",
+    "identifier": "as.acidanthera.voodoo.driver.PS2Controller"
+  },
+  {
+    "bundle": "VoodooI2C.kext",
+    "version": "2.9.1",
+    "identifier": "com.alexandred.VoodooI2C"
+  },
+  {
+    "bundle": "VoodooI2CHID.kext",
+    "version": "1",
+    "identifier": "com.alexandred.VoodooI2CHID"
+  },
+  {
+    "bundle": "BrightnessKeys.kext",
+    "version": "1.0.3",
+    "identifier": "as.acidanthera.BrightnessKeys"
+  },
+  {
+    "bundle": "AppleALC.kext",
+    "version": "1.9.8",
+    "identifier": "as.vit9696.AppleALC"
+  },
+  {
+    "bundle": "SMCBatteryManager.kext",
+    "version": "1.3.8",
+    "identifier": "ru.usrsse2.SMCBatteryManager"
+  },
+  {
+    "bundle": "SMCLightSensor.kext",
+    "version": "1.3.8",
+    "identifier": "ru.usrsse2.SMCLightSensor"
+  },
+  {
+    "bundle": "BlueToolFixup.kext",
+    "version": "2.7.2",
+    "identifier": "as.acidanthera.BlueToolFixup"
+  },
+  {
+    "bundle": "RealtekBluetoothFirmware.kext",
+    "version": "1.0.2",
+    "identifier": "org.thegwchr.RealtekBluetoothFirmware"
+  },
+  {
+    "bundle": "HoRNDIS-Host.kext",
+    "version": "9.4",
+    "identifier": "com.joshuawise.kexts.HoRNDIS"
+  }
+]

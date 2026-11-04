@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-04",
+  "hardware": "XMA2007-BJ / Ryzen 5 5600H / RTL8852AE + USB 0CB8:C549",
+  "macOS": "15.7.5 (24G624)",
+  "observed": [
+    "User confirmed iGPU and speakers",
+    "User confirmed Xiaomi USB tethering",
+    "Wi-Fi and OPPO Enco X3 connected simultaneously",
+    "Microphone input meter responded; AMDMicrophone 1.0.0d1 loaded",
+    "Post-sleep and post-unplug captures contain connected Enco X3 and AMD Digital Microphone",
+    "USBX sleep-current property changed from 0 to 2100",
+    "User confirmed RedmiBook sending AirPlay to desktop with simultaneous playback"
+  ],
+  "limits": [
+    "AirPlay desktop/Mac Pro sending to RedmiBook: adding RedmiBook mutes both; removing RedmiBook restores desktop; unresolved",
+    "Physical USB-A/USB-C mapping is incomplete",
+    "No claim of DRM, AirDrop, HDMI audio, all refresh rates, hibernation or macOS26 support"
+  ],
+  "finalization_changes": [
+    "Disabled OpenCore file logs and verbose boot",
+    "Pruned disabled entries and unused root-level kexts/tables/tools",
+    "Same OpenCore1.0.8 binaries, active drivers and runtime patches as tested14; no untested driver upgrades",
+    "Public SMBIOS identity cleared; public theme GoldenGate, owner USB retains ModernView"
+  ],
+  "original_raw_logs_published": false
+}

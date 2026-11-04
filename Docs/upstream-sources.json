@@ -1,0 +1,224 @@
+[
+  {
+    "repo": "acidanthera/OpenCorePkg",
+    "ref": "1.0.8",
+    "source_url": "https://github.com/acidanthera/OpenCorePkg/tree/1.0.8",
+    "source_archive_url": "https://codeload.github.com/acidanthera/OpenCorePkg/tar.gz/1.0.8",
+    "license": "BSD-3-Clause",
+    "license_file": "Licenses/acidanthera--OpenCorePkg--LICENSE.txt",
+    "license_url": "https://github.com/acidanthera/OpenCorePkg/blob/1.0.8/LICENSE.txt",
+    "license_ref": "1.0.8"
+  },
+  {
+    "repo": "acidanthera/OcBinaryData",
+    "ref": "master",
+    "source_url": "https://github.com/acidanthera/OcBinaryData/tree/master",
+    "source_archive_url": "https://codeload.github.com/acidanthera/OcBinaryData/tar.gz/master",
+    "license": "No root license retrieved; see upstream individual files and notices"
+  },
+  {
+    "repo": "acidanthera/Lilu",
+    "ref": "1.7.2",
+    "source_url": "https://github.com/acidanthera/Lilu/tree/1.7.2",
+    "source_archive_url": "https://codeload.github.com/acidanthera/Lilu/tar.gz/1.7.2",
+    "license": "BSD-3-Clause",
+    "license_file": "Licenses/acidanthera--Lilu--LICENSE.txt",
+    "license_url": "https://github.com/acidanthera/Lilu/blob/1.7.2/LICENSE.txt",
+    "license_ref": "1.7.2"
+  },
+  {
+    "repo": "ChefKissInc/NootedRed",
+    "ref": "v0.8.10",
+    "source_url": "https://github.com/ChefKissInc/NootedRed/tree/v0.8.10",
+    "source_archive_url": "https://codeload.github.com/ChefKissInc/NootedRed/tar.gz/v0.8.10",
+    "license": "NOASSERTION",
+    "license_file": "Licenses/ChefKissInc--NootedRed--LICENSE",
+    "license_url": "https://github.com/ChefKissInc/NootedRed/blob/v0.8.10/LICENSE",
+    "license_ref": "v0.8.10"
+  },
+  {
+    "repo": "acidanthera/VirtualSMC",
+    "ref": "1.3.8",
+    "source_url": "https://github.com/acidanthera/VirtualSMC/tree/1.3.8",
+    "source_archive_url": "https://codeload.github.com/acidanthera/VirtualSMC/tar.gz/1.3.8",
+    "license": "BSD-3-Clause",
+    "license_file": "Licenses/acidanthera--VirtualSMC--LICENSE.txt",
+    "license_url": "https://github.com/acidanthera/VirtualSMC/blob/1.3.8/LICENSE.txt",
+    "license_ref": "1.3.8"
+  },
+  {
+    "repo": "acidanthera/AppleALC",
+    "ref": "1.9.8",
+    "source_url": "https://github.com/acidanthera/AppleALC/tree/1.9.8",
+    "source_archive_url": "https://codeload.github.com/acidanthera/AppleALC/tar.gz/1.9.8",
+    "license": "BSD-3-Clause",
+    "license_file": "Licenses/acidanthera--AppleALC--LICENSE.txt",
+    "license_url": "https://github.com/acidanthera/AppleALC/blob/1.9.8/LICENSE.txt",
+    "license_ref": "1.9.8"
+  },
+  {
+    "repo": "acidanthera/NVMeFix",
+    "ref": "1.1.3",
+    "source_url": "https://github.com/acidanthera/NVMeFix/tree/1.1.3",
+    "source_archive_url": "https://codeload.github.com/acidanthera/NVMeFix/tar.gz/1.1.3",
+    "license": "NOASSERTION",
+    "license_file": "Licenses/acidanthera--NVMeFix--LICENSE.txt",
+    "license_url": "https://github.com/acidanthera/NVMeFix/blob/1.1.3/LICENSE.txt",
+    "license_ref": "1.1.3"
+  },
+  {
+    "repo": "acidanthera/RestrictEvents",
+    "ref": "1.1.6",
+    "source_url": "https://github.com/acidanthera/RestrictEvents/tree/1.1.6",
+    "source_archive_url": "https://codeload.github.com/acidanthera/RestrictEvents/tar.gz/1.1.6",
+    "license": "BSD-3-Clause",
+    "license_file": "Licenses/acidanthera--RestrictEvents--LICENSE.txt",
+    "license_url": "https://github.com/acidanthera/RestrictEvents/blob/1.1.6/LICENSE.txt",
+    "license_ref": "1.1.6"
+  },
+  {
+    "repo": "averycblack/ECEnabler",
+    "ref": "1.0.6",
+    "source_url": "https://github.com/averycblack/ECEnabler/tree/1.0.6",
+    "source_archive_url": "https://codeload.github.com/averycblack/ECEnabler/tar.gz/1.0.6",
+    "license": "No root license retrieved; see upstream individual files and notices"
+  },
+  {
+    "repo": "ChefKissInc/ForgedInvariant",
+    "ref": "v1.5.0",
+    "source_url": "https://github.com/ChefKissInc/ForgedInvariant/tree/v1.5.0",
+    "source_archive_url": "https://codeload.github.com/ChefKissInc/ForgedInvariant/tar.gz/v1.5.0",
+    "license": "NOASSERTION",
+    "license_file": "Licenses/ChefKissInc--ForgedInvariant--LICENSE",
+    "license_url": "https://github.com/ChefKissInc/ForgedInvariant/blob/v1.5.0/LICENSE",
+    "license_ref": "v1.5.0"
+  },
+  {
+    "repo": "acidanthera/VoodooPS2",
+    "ref": "2.3.7",
+    "source_url": "https://github.com/acidanthera/VoodooPS2/tree/2.3.7",
+    "source_archive_url": "https://codeload.github.com/acidanthera/VoodooPS2/tar.gz/2.3.7",
+    "license": "NOASSERTION",
+    "license_file": "Licenses/acidanthera--VoodooPS2--LICENSE.md",
+    "license_url": "https://github.com/acidanthera/VoodooPS2/blob/2.3.7/LICENSE.md",
+    "license_ref": "2.3.7"
+  },
+  {
+    "repo": "VoodooI2C/VoodooI2C",
+    "ref": "v2.9.1",
+    "source_url": "https://github.com/VoodooI2C/VoodooI2C/tree/v2.9.1",
+    "source_archive_url": "https://codeload.github.com/VoodooI2C/VoodooI2C/tar.gz/v2.9.1",
+    "license": "GPL-3.0",
+    "license_file": "Licenses/VoodooI2C--VoodooI2C--LICENSE.txt",
+    "license_url": "https://github.com/VoodooI2C/VoodooI2C/blob/v2.9.1/LICENSE.txt",
+    "license_ref": "v2.9.1"
+  },
+  {
+    "repo": "acidanthera/BrightnessKeys",
+    "ref": "1.0.3",
+    "source_url": "https://github.com/acidanthera/BrightnessKeys/tree/1.0.3",
+    "source_archive_url": "https://codeload.github.com/acidanthera/BrightnessKeys/tar.gz/1.0.3",
+    "license": "BSD-3-Clause",
+    "license_file": "Licenses/acidanthera--BrightnessKeys--LICENSE",
+    "license_url": "https://github.com/acidanthera/BrightnessKeys/blob/1.0.3/LICENSE",
+    "license_ref": "1.0.3"
+  },
+  {
+    "repo": "trulyspinach/SMCAMDProcessor",
+    "ref": "0.7.2f1",
+    "source_url": "https://github.com/trulyspinach/SMCAMDProcessor/tree/0.7.2f1",
+    "source_archive_url": "https://codeload.github.com/trulyspinach/SMCAMDProcessor/tar.gz/0.7.2f1",
+    "license": "BSD-3-Clause",
+    "license_file": "Licenses/trulyspinach--SMCAMDProcessor--LICENSE",
+    "license_url": "https://github.com/trulyspinach/SMCAMDProcessor/blob/0.7.2f1/LICENSE",
+    "license_ref": "0.7.2f1"
+  },
+  {
+    "repo": "USBToolBox/kext",
+    "ref": "1.2.0",
+    "source_url": "https://github.com/USBToolBox/kext/tree/1.2.0",
+    "source_archive_url": "https://codeload.github.com/USBToolBox/kext/tar.gz/1.2.0",
+    "license": "No root license retrieved; see upstream individual files and notices"
+  },
+  {
+    "repo": "acidanthera/BrcmPatchRAM",
+    "ref": "2.7.2",
+    "source_url": "https://github.com/acidanthera/BrcmPatchRAM/tree/2.7.2",
+    "source_archive_url": "https://codeload.github.com/acidanthera/BrcmPatchRAM/tar.gz/2.7.2",
+    "license": "GPL-2.0",
+    "license_file": "Licenses/acidanthera--BrcmPatchRAM--LICENSE",
+    "license_url": "https://github.com/acidanthera/BrcmPatchRAM/blob/2.7.2/LICENSE",
+    "license_ref": "2.7.2"
+  },
+  {
+    "repo": "thegwchr/RealtekBluetoothFirmware",
+    "ref": "v1.0.2",
+    "source_url": "https://github.com/thegwchr/RealtekBluetoothFirmware/tree/v1.0.2",
+    "source_archive_url": "https://codeload.github.com/thegwchr/RealtekBluetoothFirmware/tar.gz/v1.0.2",
+    "license": "NOASSERTION",
+    "license_file": "Licenses/thegwchr--RealtekBluetoothFirmware--LICENSE",
+    "license_url": "https://github.com/thegwchr/RealtekBluetoothFirmware/blob/v1.0.2/LICENSE",
+    "license_ref": "v1.0.2"
+  },
+  {
+    "repo": "souissiak1-maker/AirportRTW",
+    "ref": "V2.3.0",
+    "source_url": "https://github.com/souissiak1-maker/AirportRTW/tree/V2.3.0",
+    "source_archive_url": "https://codeload.github.com/souissiak1-maker/AirportRTW/tar.gz/V2.3.0",
+    "license": "GPL-2.0",
+    "license_file": "Licenses/souissiak1-maker--AirportRTW--LICENSE",
+    "license_url": "https://github.com/souissiak1-maker/AirportRTW/blob/V2.3.0/LICENSE",
+    "license_ref": "V2.3.0"
+  },
+  {
+    "repo": "Apheleos/HoRNDIS",
+    "ref": "9.4",
+    "source_url": "https://github.com/Apheleos/HoRNDIS/tree/9.4",
+    "source_archive_url": "https://codeload.github.com/Apheleos/HoRNDIS/tar.gz/9.4",
+    "license": "NOASSERTION",
+    "license_file": "Licenses/Apheleos--HoRNDIS--COPYING.rtf",
+    "license_url": "https://github.com/Apheleos/HoRNDIS/blob/9.4/COPYING.rtf",
+    "license_ref": "9.4"
+  },
+  {
+    "repo": "qhuyduong/AMDMicrophone",
+    "ref": "v1.0.0",
+    "source_url": "https://github.com/qhuyduong/AMDMicrophone/tree/v1.0.0",
+    "source_archive_url": "https://codeload.github.com/qhuyduong/AMDMicrophone/tar.gz/v1.0.0",
+    "license": "MIT",
+    "license_file": "Licenses/qhuyduong--AMDMicrophone--LICENSE",
+    "license_url": "https://github.com/qhuyduong/AMDMicrophone/blob/v1.0.0/LICENSE",
+    "license_ref": "v1.0.0"
+  },
+  {
+    "repo": "dortania/Getting-Started-With-ACPI",
+    "ref": "master",
+    "source_url": "https://github.com/dortania/Getting-Started-With-ACPI/tree/master",
+    "source_archive_url": "https://codeload.github.com/dortania/Getting-Started-With-ACPI/tar.gz/master",
+    "license": "No root license retrieved; see upstream individual files and notices"
+  },
+  {
+    "repo": "dortania/OpenCore-Legacy-Patcher",
+    "ref": "main",
+    "source_url": "https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main",
+    "source_archive_url": "https://codeload.github.com/dortania/OpenCore-Legacy-Patcher/tar.gz/main",
+    "license": "NOASSERTION",
+    "license_file": "Licenses/dortania--OpenCore-Legacy-Patcher--LICENSE.txt",
+    "license_url": "https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/LICENSE.txt",
+    "license_ref": "main"
+  },
+  {
+    "repo": "AMD-OSX/AMD_Vanilla",
+    "ref": "master",
+    "source_url": "https://github.com/AMD-OSX/AMD_Vanilla/tree/master",
+    "source_archive_url": "https://codeload.github.com/AMD-OSX/AMD_Vanilla/tar.gz/master",
+    "license": "No root license retrieved; see upstream individual files and notices"
+  },
+  {
+    "repo": "akwangl/RedmiBook-Pro-15S-hackintosh",
+    "ref": "main",
+    "source_url": "https://github.com/akwangl/RedmiBook-Pro-15S-hackintosh/tree/main",
+    "source_archive_url": "https://codeload.github.com/akwangl/RedmiBook-Pro-15S-hackintosh/tar.gz/main",
+    "license": "No root license retrieved; see upstream individual files and notices"
+  }
+]

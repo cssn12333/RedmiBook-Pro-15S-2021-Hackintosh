@@ -1,0 +1,74 @@
+[
+  {
+    "repo": "ChefKissInc/NootedRed",
+    "ref": "v0.8.10",
+    "source_url": "https://codeload.github.com/ChefKissInc/NootedRed/tar.gz/v0.8.10",
+    "file": "Sources/Upstream/ChefKissInc--NootedRed-v0.8.10.tar.gz",
+    "sha256": "44be6b549bcec5a51a1bc72d0f393373a443271836b5d236374dbec67bfced13",
+    "bytes": 1081747
+  },
+  {
+    "repo": "acidanthera/NVMeFix",
+    "ref": "1.1.3",
+    "source_url": "https://codeload.github.com/acidanthera/NVMeFix/tar.gz/1.1.3",
+    "file": "Sources/Upstream/acidanthera--NVMeFix-1.1.3.tar.gz",
+    "sha256": "b1f80eae452a7bcbeaa0a7011262a7c1e4ec10a5907284b3e73a176734b4fd6f",
+    "bytes": 42771
+  },
+  {
+    "repo": "ChefKissInc/ForgedInvariant",
+    "ref": "v1.5.0",
+    "source_url": "https://codeload.github.com/ChefKissInc/ForgedInvariant/tar.gz/v1.5.0",
+    "file": "Sources/Upstream/ChefKissInc--ForgedInvariant-v1.5.0.tar.gz",
+    "sha256": "b75c88c2c4687a7c90e0db6bc64e863e2fb0438e98c2fbfc426789757d36536c",
+    "bytes": 14629
+  },
+  {
+    "repo": "acidanthera/VoodooPS2",
+    "ref": "2.3.7",
+    "source_url": "https://codeload.github.com/acidanthera/VoodooPS2/tar.gz/2.3.7",
+    "file": "Sources/Upstream/acidanthera--VoodooPS2-2.3.7.tar.gz",
+    "sha256": "80f6d4c349ee9f109485b51e941f1386c9f086358d45b63a0be26a37bda8bb70",
+    "bytes": 1010016
+  },
+  {
+    "repo": "VoodooI2C/VoodooI2C",
+    "ref": "v2.9.1",
+    "source_url": "https://codeload.github.com/VoodooI2C/VoodooI2C/tar.gz/v2.9.1",
+    "file": "Sources/Upstream/VoodooI2C--VoodooI2C-v2.9.1.tar.gz",
+    "sha256": "c989ef00c696e00bcb27f0cc93751e1ece9b0ec07a871988ffd2bedab3370caa",
+    "bytes": 708573
+  },
+  {
+    "repo": "acidanthera/BrcmPatchRAM",
+    "ref": "2.7.2",
+    "source_url": "https://codeload.github.com/acidanthera/BrcmPatchRAM/tar.gz/2.7.2",
+    "file": "Sources/Upstream/acidanthera--BrcmPatchRAM-2.7.2.tar.gz",
+    "sha256": "9a5c62836d7b2007751a0f60dafd15b400c597a345080f66b4d5d389a2303537",
+    "bytes": 9175105
+  },
+  {
+    "repo": "thegwchr/RealtekBluetoothFirmware",
+    "ref": "v1.0.2",
+    "source_url": "https://codeload.github.com/thegwchr/RealtekBluetoothFirmware/tar.gz/v1.0.2",
+    "file": "Sources/Upstream/thegwchr--RealtekBluetoothFirmware-v1.0.2.tar.gz",
+    "sha256": "564c5df7df71fdc67c6b4fce7cfba7502ce806a3dfa449befdf24d35a182df2e",
+    "bytes": 1585444
+  },
+  {
+    "repo": "souissiak1-maker/AirportRTW",
+    "ref": "V2.3.0",
+    "source_url": "https://codeload.github.com/souissiak1-maker/AirportRTW/tar.gz/V2.3.0",
+    "file": "Sources/Upstream/souissiak1-maker--AirportRTW-V2.3.0.tar.gz",
+    "sha256": "a3676feaf456e1bd75d6b7bc9644cee590c6c13fea3fa6ab48f53560fb5f3925",
+    "bytes": 31866356
+  },
+  {
+    "repo": "Apheleos/HoRNDIS",
+    "ref": "9.4",
+    "source_url": "https://codeload.github.com/Apheleos/HoRNDIS/tar.gz/9.4",
+    "file": "Sources/Upstream/Apheleos--HoRNDIS-9.4.tar.gz",
+    "sha256": "1e6e7fb796059376892c0985f2434d3d72a85abe8819c4cad278c5f418abfac4",
+    "bytes": 42809
+  }
+]

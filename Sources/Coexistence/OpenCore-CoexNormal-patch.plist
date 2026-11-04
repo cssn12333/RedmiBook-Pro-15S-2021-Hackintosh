@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Arch</key>
+	<string>x86_64</string>
+	<key>Base</key>
+	<string>_rtw88_force_wifi_only</string>
+	<key>Comment</key>
+	<string>EXPERIMENT: AirportRTW 2.3.0 Sequoia - skip forced WiFi-only, retain normal BT coexistence</string>
+	<key>Count</key>
+	<integer>1</integer>
+	<key>Enabled</key>
+	<true/>
+	<key>Find</key>
+	<data>
+	VUiJ5egAAAAAxgUAAAAAAQ==
+	</data>
+	<key>Identifier</key>
+	<string>com.senmiko.AirportRTW</string>
+	<key>Limit</key>
+	<integer>16</integer>
+	<key>Mask</key>
+	<data>
+	//////8AAAAA//8AAAAA/w==
+	</data>
+	<key>MaxKernel</key>
+	<string>24.99.99</string>
+	<key>MinKernel</key>
+	<string>24.0.0</string>
+	<key>Replace</key>
+	<data>
+	w5CQkAAAAAAAAAAAAAAAAA==
+	</data>
+	<key>ReplaceMask</key>
+	<data>
+	/////wAAAAAAAAAAAAAAAA==
+	</data>
+	<key>Skip</key>
+	<integer>0</integer>
+</dict>
+</plist>
