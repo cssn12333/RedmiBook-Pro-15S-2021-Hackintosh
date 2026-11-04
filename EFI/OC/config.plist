@@ -2411,7 +2411,7 @@
 				Rg==
 				</data>
 				<key>boot-args</key>
-				<string></string>
+				<string>-btlfxboardid</string>
 				<key>csr-active-config</key>
 				<data>
 				AQAAAA==

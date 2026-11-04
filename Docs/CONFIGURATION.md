@@ -1,10 +1,12 @@
 # 配置详解
 
-本文对应v1.0.1实际config。功能组合来自5600H/RTL8852AE这台机器，发布整理没有升级驱动，也没有为AirPlay新增内核补丁。
+本文对应v1.0.2实际config。功能组合来自5600H/RTL8852AE这台机器；本次仅增加 `-btlfxboardid` 用于USB蓝牙机型识别，没有升级驱动，也没有为AirPlay新增内核补丁。
 
 ## OpenCore与系统标识
 
 OpenCore1.0.8，保留与正常测试时相同的DEBUG二进制；`Misc/Debug/Target=0`，关闭AppleDebug、ApplePanic与SysReport，启动参数中去掉`-v`、`keepsyms=1`、`debug=0x100`。这属于发布时的日志与显示整理，不改变核显、音频、USB或Wi-Fi驱动。
+
+当前启动参数为 `-btlfxboardid`。官方BlueToolFixup2.7.2在Sonoma及以后需要该参数才启用board-id表修正；本机睡眠恢复与服务重启时曾误走PCIe蓝牙路径，加参后最新对照测试通过。原NVRAM/Delete已包含boot-args。详见 [蓝牙睡眠修复](BLUETOOTH-SLEEP.md)。
 
 SMBIOS使用MacBookPro16,3。公开config中的SystemSerialNumber、MLB为空，SystemUUID和ROM为零，供使用者自行填入。机器自用EFI的真实身份没有提交到仓库。
 

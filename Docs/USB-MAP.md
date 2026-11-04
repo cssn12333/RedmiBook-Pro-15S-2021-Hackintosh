@@ -29,7 +29,7 @@
 | kUSBWakePowerSupply | 5100 |
 | kUSBWakePortCurrentLimit | 2100 |
 
-该表告诉macOS采用的USB电源参数，不是直接改写主板电源轨或保证任何固件下都不掉电。最新测试通过，也不等于已经验证长时休眠、所有外设或全部USB插口。
+该表告诉macOS采用的USB电源参数，不是直接改写主板电源轨或保证任何固件下都不掉电。早期测试曾通过，但后续仍出现蓝牙恢复故障；v1.0.2增加 `-btlfxboardid` 修正用户态USB/PCIe识别后，本轮睡眠唤醒通过。不能把USBX单独视为完整修复，也不等于已经验证长时休眠、所有外设或全部USB插口。见 [蓝牙睡眠恢复](BLUETOOTH-SLEEP.md)。
 
 ## 蓝牙恢复时的判断
 

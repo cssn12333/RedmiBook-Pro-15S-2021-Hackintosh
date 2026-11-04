@@ -9,3 +9,4 @@ opencore-*.txt
 panic-*.txt
 __pycache__/
 *.pyc
+Diagnostics/

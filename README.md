@@ -2,7 +2,7 @@
 
 面向 RedmiBook Pro 15S 2021 / XMA2007-BJ 的 OpenCore EFI、配置说明与排障工程。CPU 为 **Ryzen 5 5600H，6核12线程**，网卡为 **Realtek RTL8852AE**。本项目记录在一台实机上从安装、网卡死机排障到蓝牙共存、USB睡眠电源和麦克风输入的过程，供同硬件用户参考。
 
-**当前版本：v1.0.1 · 更新日期：2026-11-04。** [下载发布包](https://github.com/cssn12333/RedmiBook-Pro-15S-2021-Hackintosh/releases/latest)。本次按已正常使用的配置定版，完善文档并更新AirPlay验证结果，核心EFI与v1.0.0相同。
+**当前版本：v1.0.2 · 更新日期：2026-11-04。** [下载发布包](https://github.com/cssn12333/RedmiBook-Pro-15S-2021-Hackintosh/releases/latest)。本次增加 `-btlfxboardid`，修正蓝牙睡眠后重新初始化误走PCIe路径的问题。用户与对照日志确认本轮睡眠唤醒后USB蓝牙、Enco X3和Wi-Fi正常；没有升级驱动。详见 [蓝牙睡眠修复](Docs/BLUETOOTH-SLEEP.md)。
 
 **这不是通用EFI，也不是所有功能均受支持的“完美驱动”。** 已验证系统为 macOS Sequoia **15.7.5 / 24G624**。未验证 macOS26。5800H、5500U、Intel版和其他网卡不能直接照搬。
 
@@ -15,10 +15,10 @@
 | 声卡 | Realtek ALC256 / AppleALC1.9.8 / layout67；内置扬声器正常 |
 | 存储 | 512GB BG40；NVMeFix启用 |
 | Wi-Fi | RTL8852AE / AirportRTW2.3.0 Sequoia原生前端；已连接上网 |
-| 蓝牙 | USB 0CB8:C549 / RealtekBluetoothFirmware1.0.2 + BlueToolFixup2.7.2；Enco X3与Wi-Fi共存通过一次联合测试 |
+| 蓝牙 | USB 0CB8:C549 / RealtekBluetoothFirmware1.0.2 + BlueToolFixup2.7.2；保留共存补丁，增加USB传输机型识别；最新睡眠唤醒测试中Enco X3连接正常 |
 | 手机共享 | 小米手机USB网络共享 / HoRNDIS-Host9.4 |
 | 内置麦克风 | AMD ACP 1022:15E2 revision01；系统内安装AMDMicrophone1.0.0d1后，用户确认输入音量条响应 |
-| 合盖 / 唤醒 | 最新一次联合测试正常，唤醒后蓝牙和麦克风仍识别 |
+| 合盖 / 唤醒 | 早期USBX修正后仍曾复发；v1.0.2增加USB蓝牙机型识别后，本轮睡眠唤醒、蓝牙耳机和Wi-Fi正常；长时休眠未验证 |
 | U盘热拔 | 最新一次测试，耳机无中断 |
 | AirPlay隔空音频 | 用户最新确认两台机器双向音频互传正常；红米向桌面发送并与本机同时发声也已确认。多扬声器组合未做长期测试 |
 | 其他 | HDMI音频、DRM、隔空投送、全部USB插口、长时休眠、全部刷新率未逐项验证 |
@@ -50,6 +50,7 @@ SHA256SUMS.txt       公开工程文件校验清单
 |---|---|
 | OpenCore与启动参数 | [配置详解](Docs/CONFIGURATION.md) |
 | Wi-Fi/蓝牙共存 | [补丁实现与验证](Docs/COEXISTENCE.md) |
+| 蓝牙睡眠恢复 | [USB/PCIe传输识别、故障证据与v1.0.2改动](Docs/BLUETOOTH-SLEEP.md) |
 | USB内部端口和电源 | [USB映射](Docs/USB-MAP.md) |
 | 麦克风系统安装 | 见下文，以及`Tools/Install-Microphone.command` |
 | 全部启用驱动版本 | [组件清单](Docs/components.json) |
@@ -71,14 +72,15 @@ SHA256SUMS.txt       公开工程文件校验清单
 - Wi-Fi使用Sequoia原生AirportRTW，不再加载旧IOSkywalk/IO80211Legacy和AirPort_RTW89组合。
 - AirportRTW2.3.0原版初始化强制调用 `rtw88_force_wifi_only()`。本机需要蓝牙共存，所以用精确限定的OpenCore内存补丁跳过该函数，让底层保留正常共存模式。驱动磁盘文件保持官方原版。详情见 [Docs/COEXISTENCE.md](Docs/COEXISTENCE.md)。**升级Wi-Fi驱动前必须重新审查，不能沿用该补丁。**
 - 原生AppleUSBXHCIPCI + USBToolBox；蓝牙XHC0/P004、摄像头XHC0/P003、指纹XHC1/P003标为内部255。指纹端口标记不等于macOS指纹认证可用。
-- 添加标准SSDT-USBX。测试中USB睡眠电流属性从0变为2100，之后的合盖、唤醒与拔盘联合测试通过。USBX提供系统电源属性，不保证每块主板的物理供电策略。
+- 添加标准SSDT-USBX。测试中USB睡眠电流属性从0变为2100，之后的合盖、唤醒与拔盘联合测试曾通过，但后续仍有复发；USBX提供系统电源属性，不保证每块主板的物理供电策略。
+- v1.0.2增加 `-btlfxboardid`：启用官方BlueToolFixup2.7.2的board-id表修正，让当前MacBookPro16,3机型进入USB蓝牙路径。此前故障日志显示bluetoothd等待不存在的AppleConvergedIPCControl并循环失败；加参后最新睡眠唤醒测试中USB蓝牙、Enco X3与Wi-Fi正常。该参数与共存补丁作用不同，详见 [修复记录](Docs/BLUETOOTH-SLEEP.md)。
 
 ### 网络驱动组合
 
 | 功能 | 实际使用的组件 | 配置作用 |
 |---|---|---|
 | Wi-Fi | Lilu1.7.2 → AMFIPass1.4.1 → AirportRTW2.3.0 Sequoia | 使用macOS15原生Wi-Fi界面，不依赖旧版IO80211根补丁组合 |
-| 蓝牙 | BlueToolFixup2.7.2 + RealtekBluetoothFirmware1.0.2 | 加载Realtek蓝牙固件，衔接macOS蓝牙服务 |
+| 蓝牙 | BlueToolFixup2.7.2 + RealtekBluetoothFirmware1.0.2 + `-btlfxboardid` | Realtek固件上传，并修正当前机型的USB蓝牙传输路径 |
 | USB网络 | HoRNDIS-Host9.4 | 小米Android手机的USB网络共享 |
 | USB控制器 | AppleUSBXHCIPCI + USBToolBox1.2.0 + 本机映射 | 原生USB控制器配合已确认的内部端口 |
 
@@ -93,7 +95,7 @@ SHA256SUMS.txt       公开工程文件校验清单
 | USB共享 | 小米开启共享后没有新网络接口 | 原生USB控制器与HoRNDIS-Host9.4 |
 | 蓝牙识别 | 能开开关但没有设备，控制器识别不完整 | Realtek固件、BlueToolFixup和蓝牙选择变量 |
 | 无线共存 | Wi-Fi连接后Enco X3断开，关闭Wi-Fi可恢复 | 针对指定二进制跳过强制Wi-Fi-only策略 |
-| 睡眠后蓝牙 | 屏幕正常唤醒，但USB蓝牙重新枚举后失去有效控制器 | USBX与内部端口修正，之后联合测试通过 |
+| 睡眠后蓝牙 | USBX与内部端口修正后曾通过短时测试，后续复发；蓝牙服务重启仍误走PCIe路径 | v1.0.2增加 `-btlfxboardid`，最新睡眠唤醒后USB蓝牙、Enco X3及Wi-Fi正常 |
 | 内置麦克风 | 只有线路输入，ACP没有功能驱动 | 系统内安装AMDMicrophone，实测输入音量条响应 |
 | AirPlay | 曾有单向接收/多输出异常，后续双向正常 | 保留当前EFI，记录用户最新确认结果；未额外添加AirPlay补丁 |
 
@@ -123,6 +125,7 @@ sudo bash "/path/to/project/Tools/Install-Microphone.command"
 
 - `Tools/Test-Bluetooth-Microphone.command`：分阶段验证共存、麦克风、睡眠和拔盘，日志先写本机`/Users/Shared`。
 - `Tools/Bluetooth-Failure-Logs.command`：蓝牙卡住时采集USB、蓝牙、音频与近期日志。
+- `Tools/Bluetooth-Sleep-Diagnostics.command`：双击选择睡前/醒后对照或当前故障；记录后可尝试临时恢复无线功能。说明见 [蓝牙睡眠修复](Docs/BLUETOOTH-SLEEP.md)，日志不上传公开仓库。
 - `Tools/交接与维护.command --airplay`：在接收端红米采集AirPlay及coreaudiod日志。
 - `sudo bash Tools/交接与维护.command --cleanup`：只清理本项目的测试日志和临时采集脚本，保留正在使用的驱动及含驱动备份的目录。
 - 固件和驱动升级后需重新验证；正常Wi-Fi和蓝牙不等于AirDrop/AWDL/AirPlay已完整受支持。
@@ -133,14 +136,16 @@ sudo bash "/path/to/project/Tools/Install-Microphone.command"
 
 本机最新反馈为双向音频互传正常。此状态不自动证明文件AirDrop、随航、通用控制或所有AWDL功能可用。
 
-## v1.0.1发布验证
+## v1.0.2发布验证
 
 - 配置通过OpenCore1.0.8对应的ocvalidate校验。
 - 检查所有启用ACPI、UEFI驱动、kext路径及关键加载顺序。
 - 核对AirportRTW官方二进制哈希与共存补丁的版本绑定。
 - 核对本机U盘EFI与私人最终备份的736个文件；公开包身份字段单独清空，主题改为GoldenGate。
 - GitHub仓库与发布包均不包含个人原始日志；SHA256SUMS记录各公开文件，发布页给出压缩包哈希。
-- v1.0.1没有新增核心驱动或内核补丁，主要更新功能状态和工程说明。
+- v1.0.2相对v1.0.1的EFI变化仅为启动参数增加 `-btlfxboardid`；原驱动、共存补丁与USB配置不变。
+- 本次对照日志确认实际参数生效，睡前与醒后蓝牙均为USB且正常，醒后Enco X3已连接，Wi-Fi接口保持active。成功测试没有触发临时恢复步骤。
+- 新增传输识别说明与独立诊断工具；工具有读取超时和日志大小限制，公开包未加入尚未实测的CPU/GPU传感器插件。
 
 ## 致谢与许可
 

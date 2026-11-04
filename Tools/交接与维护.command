@@ -1,14 +1,14 @@
 #!/bin/bash
 # RedmiBook Pro 15S 2021 / XMA2007-BJ / Ryzen 5 5600H / RTL8852AE
-# 基线：用户已确认的14号配置，macOS15.7.5(24G624)，2026-11-04。
+# 版本：v1.0.2；macOS15.7.5(24G624)，已验证USB蓝牙机型识别与本轮睡眠恢复。
 # GitHub：https://github.com/cssn12333/RedmiBook-Pro-15S-2021-Hackintosh
 # 麦克风已装入 /Library/Extensions/AMDMicrophone.kext，不能清理该驱动。
 # USB保留ModernView主题和本机SMBIOS；GitHub公开包清空身份并使用GoldenGate。
-# Windows备份：Documents/Hackintosh-Backups/RedmiBook5600H-20261104。
+# 工程与备份位置由使用者自行选择；原始日志和机器身份不得提交公开仓库。
 set -u
 case "${1:---help}" in
   --help)
-    printf '%s\n' '最终EFI交接说明' \
+    printf '%s\n' 'v1.0.2 EFI交接说明' \
       '已验证：核显、扬声器、Wi-Fi、Enco X3蓝牙共存、小米USB共享、麦克风输入音量条、合盖唤醒及拔盘保持连接。' \
       'AirPlay：用户最新确认双向音频互传正常；此前短暂异常原因未确定，文件AirDrop仍未验证。' \
       '未保证：全部USB插口定制、HDMI音频、DRM、隔空投送、长时休眠及macOS26。' \
@@ -23,7 +23,9 @@ case "${1:---help}" in
       'sudo bash "/Volumes/OCDEBUG/交接与维护.command" --airplay' \
       '' \
       '清理只处理本项目生成的日志、临时采集脚本，不卸载驱动，不删除系统音频缓存。' \
-      'OpenCore文件日志与启动刷字已关闭，原驱动版本和运行时补丁保留。'
+      'OpenCore文件日志与启动刷字已关闭，原驱动版本和运行时补丁保留。' \
+      'v1.0.2增加 -btlfxboardid，最新睡眠唤醒后USB蓝牙、Enco X3和Wi-Fi正常。' \
+      '睡眠诊断：bash Tools/Bluetooth-Sleep-Diagnostics.command；日志保留在本地。'
     exit 0 ;;
   --cleanup|--airplay) mode="$1" ;;
   *) printf '参数：--help、--cleanup 或 --airplay\n'; exit 1 ;;

@@ -10,7 +10,10 @@
     "Post-sleep and post-unplug captures contain connected Enco X3 and AMD Digital Microphone",
     "USBX sleep-current property changed from 0 to 2100",
     "User confirmed RedmiBook sending AirPlay to desktop with simultaneous playback",
-    "Latest user confirmation: bidirectional AirPlay audio between desktop and RedmiBook works; no AirPlay-specific EFI patch was applied"
+    "Latest user confirmation: bidirectional AirPlay audio between desktop and RedmiBook works; no AirPlay-specific EFI patch was applied",
+    "After -btlfxboardid was enabled, active boot args verified; pre/post-sleep controller stays USB, THIRD_PARTY_DONGLE and On; Enco X3 connected after wake",
+    "Latest pre/post-sleep Wi-Fi interface remains active with the same IPv4 address; user confirms normal operation",
+    "Successful sleep/wake capture did not run temporary Wi-Fi toggles or bluetoothd restart"
   ],
   "limits": [
     "Physical USB-A/USB-C mapping is incomplete",
@@ -21,10 +24,11 @@
     "Disabled OpenCore file logs and verbose boot",
     "Pruned disabled entries and unused root-level kexts/tables/tools",
     "Same OpenCore1.0.8 binaries, active drivers and runtime patches as tested14; no untested driver upgrades",
-    "Public SMBIOS identity cleared; public theme GoldenGate, owner USB retains ModernView"
+    "Public SMBIOS identity cleared; public theme GoldenGate, owner USB retains ModernView",
+    "v1.0.2 adds only -btlfxboardid to EFI boot args; no driver binaries or existing runtime patches changed"
   ],
   "original_raw_logs_published": false,
-  "release": "v1.0.1",
+  "release": "v1.0.2",
   "latest_airplay_status": {
     "date": "2026-11-04",
     "status": "user-confirmed bidirectional audio working",
@@ -32,5 +36,14 @@
     "cause": "not established",
     "airplay_specific_EFI_change": false,
     "AirDrop": "not verified"
+  },
+  "latest_bluetooth_sleep_status": {
+    "date": "2026-11-04",
+    "status": "user-confirmed and log-supported sleep/wake test passed",
+    "before_fix": "USB controller re-enumerated; bluetoothd later selected PCIe and waited 90 seconds for absent AppleConvergedIPCControl; restarting service did not recover Bluetooth",
+    "fix": "official BlueToolFixup 2.7.2 board-id USB table patch enabled by -btlfxboardid",
+    "after_fix": "USB transport, valid controller identity/firmware, PoweredOn before/after sleep; headset connected after wake; Wi-Fi active",
+    "temporary_recovery_used_in_successful_test": false,
+    "long_duration_or_repeated_sleep_exhaustively_tested": false
   }
 }

@@ -11,6 +11,11 @@ for x in enabled:
     plistlib.loads((p/x['PlistPath']).read_bytes())
     if x['ExecutablePath'] and not (p/x['ExecutablePath']).is_file(): raise SystemExit('Missing executable '+str(p))
 names=[x['BundlePath'] for x in enabled]
+if (c['PlatformInfo']['Generic']['SystemProductName']=='MacBookPro16,3'
+    and 'BlueToolFixup.kext' in names and 'RealtekBluetoothFirmware.kext' in names):
+    boot_args=c['NVRAM']['Add'].get('7C436110-AB2A-4BBB-A880-FE41995C9F82',{}).get('boot-args','').split()
+    if '-btlfxboardid' not in boot_args:
+        raise SystemExit('This RedmiBook profile requires -btlfxboardid for USB Bluetooth transport selection')
 if names.index('NootedRed.kext')>names.index('AppleALC.kext'): raise SystemExit('NootedRed must precede AppleALC')
 if names.index('Lilu.kext')>names.index('AirportRTW.kext'): raise SystemExit('Lilu must precede AirportRTW')
 binary=root/'OC/Kexts/AirportRTW.kext/Contents/MacOS/AirportRTW'
