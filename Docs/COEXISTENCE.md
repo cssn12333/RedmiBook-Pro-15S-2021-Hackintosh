@@ -12,6 +12,8 @@ OpenCore补丁以`_rtw88_force_wifi_only`符号为Base，使用16字节入口签
 
 睡眠后出现的另一问题来自USB蓝牙恢复路径：控制器在唤醒时被移除，重新枚举后没有固件加载标记，用户态命令失败。补充USBX和内部端口修正后，最新一次睡眠及拔盘联合测试通过。不能据此断言该内存补丁单独解决了睡眠问题。
 
-源代码等效改动在`Sources/Coexistence/rtl8852ae-normal-coexistence.patch`，只用于解释策略，未编译成新驱动。OpenCore补丁片段也在同目录。它是针对本机和指定二进制的局部改动，不是上游通用修复。升级AirportRTW必须重新审计；AirPlay接收无声仍是已知问题。
+源代码等效改动在`Sources/Coexistence/rtl8852ae-normal-coexistence.patch`，只用于解释策略，未编译成新驱动。OpenCore补丁片段也在同目录。它是针对本机和指定二进制的局部改动，不是上游通用修复。升级AirportRTW必须重新审计。
+
+2026-11-04后续反馈：用户确认AirPlay双向音频互传恢复正常，期间没有增加AirPlay驱动补丁。这不证明共存补丁可以解决任意AirPlay问题，也不等于已经验证AirDrop。
 
 上游：https://github.com/souissiak1-maker/AirportRTW/tree/V2.3.0

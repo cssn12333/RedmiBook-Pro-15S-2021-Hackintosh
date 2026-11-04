@@ -2,6 +2,8 @@
 
 面向 RedmiBook Pro 15S 2021 / XMA2007-BJ 的 OpenCore EFI、配置说明与排障工程。CPU 为 **Ryzen 5 5600H，6核12线程**，网卡为 **Realtek RTL8852AE**。本项目记录在一台实机上从安装、网卡死机排障到蓝牙共存、USB睡眠电源和麦克风输入的过程，供同硬件用户参考。
 
+**当前版本：v1.0.1 · 更新日期：2026-11-04。** [下载发布包](https://github.com/cssn12333/RedmiBook-Pro-15S-2021-Hackintosh/releases/latest)。本次按已正常使用的配置定版，完善文档并更新AirPlay验证结果，核心EFI与v1.0.0相同。
+
 **这不是通用EFI，也不是所有功能均受支持的“完美驱动”。** 已验证系统为 macOS Sequoia **15.7.5 / 24G624**。未验证 macOS26。5800H、5500U、Intel版和其他网卡不能直接照搬。
 
 ## 硬件与状态
@@ -18,10 +20,41 @@
 | 内置麦克风 | AMD ACP 1022:15E2 revision01；系统内安装AMDMicrophone1.0.0d1后，用户确认输入音量条响应 |
 | 合盖 / 唤醒 | 最新一次联合测试正常，唤醒后蓝牙和麦克风仍识别 |
 | U盘热拔 | 最新一次测试，耳机无中断 |
-| AirPlay | 红米发送到桌面及两端同步发声正常；**桌面将红米加入接收组后两端静音，取消红米后桌面恢复；未解决** |
+| AirPlay隔空音频 | 用户最新确认两台机器双向音频互传正常；红米向桌面发送并与本机同时发声也已确认。多扬声器组合未做长期测试 |
 | 其他 | HDMI音频、DRM、隔空投送、全部USB插口、长时休眠、全部刷新率未逐项验证 |
 
 测试范围与脱敏记录见 [Docs/validation.json](Docs/validation.json)，驱动版本见 [Docs/components.json](Docs/components.json)。原始日志、序列号、UUID、ROM、Wi-Fi密码及个人设备地址没有上传。
+
+AirPlay曾出现过单向接收/输出组合异常，随后用户确认双向恢复正常，期间没有针对AirPlay更换EFI或加入驱动补丁，原因未确定。这里记录“当前实测可用”，不将其描述为已经定位并修复了某个底层缺陷。文件隔空投送AirDrop不等同于AirPlay，仍未验证。
+
+## 工程目录
+
+```text
+EFI/                 精简后的公开EFI，身份字段已清空
+  BOOT/              UEFI默认入口
+  OC/                OpenCore、config、ACPI、驱动和主题资源
+Drivers/             需在macOS系统内安装的AMDMicrophone
+Tools/               身份填写、完整性校验、安装/卸载和采集工具
+Docs/                配置解释、验证记录、版本与来源清单
+Sources/Coexistence/ Wi-Fi/蓝牙共存补丁片段和等效源码改动
+Sources/USBMap/      本机USB映射的Info.plist
+Sources/ACPI/        USBX电源表
+Sources/Upstream/    对应版本的相关上游源码归档
+Licenses/            可取得的上游许可原文
+SHA256SUMS.txt       公开工程文件校验清单
+```
+
+## 配置索引
+
+| 内容 | 说明 |
+|---|---|
+| OpenCore与启动参数 | [配置详解](Docs/CONFIGURATION.md) |
+| Wi-Fi/蓝牙共存 | [补丁实现与验证](Docs/COEXISTENCE.md) |
+| USB内部端口和电源 | [USB映射](Docs/USB-MAP.md) |
+| 麦克风系统安装 | 见下文，以及`Tools/Install-Microphone.command` |
+| 全部启用驱动版本 | [组件清单](Docs/components.json) |
+| 实测范围 | [验证记录](Docs/validation.json) |
+| 上游源码和许可 | [第三方来源](THIRD_PARTY.md)、[源码归档校验](Docs/source-archives.json) |
 
 ## 使用前必须做
 
@@ -39,6 +72,32 @@
 - AirportRTW2.3.0原版初始化强制调用 `rtw88_force_wifi_only()`。本机需要蓝牙共存，所以用精确限定的OpenCore内存补丁跳过该函数，让底层保留正常共存模式。驱动磁盘文件保持官方原版。详情见 [Docs/COEXISTENCE.md](Docs/COEXISTENCE.md)。**升级Wi-Fi驱动前必须重新审查，不能沿用该补丁。**
 - 原生AppleUSBXHCIPCI + USBToolBox；蓝牙XHC0/P004、摄像头XHC0/P003、指纹XHC1/P003标为内部255。指纹端口标记不等于macOS指纹认证可用。
 - 添加标准SSDT-USBX。测试中USB睡眠电流属性从0变为2100，之后的合盖、唤醒与拔盘联合测试通过。USBX提供系统电源属性，不保证每块主板的物理供电策略。
+
+### 网络驱动组合
+
+| 功能 | 实际使用的组件 | 配置作用 |
+|---|---|---|
+| Wi-Fi | Lilu1.7.2 → AMFIPass1.4.1 → AirportRTW2.3.0 Sequoia | 使用macOS15原生Wi-Fi界面，不依赖旧版IO80211根补丁组合 |
+| 蓝牙 | BlueToolFixup2.7.2 + RealtekBluetoothFirmware1.0.2 | 加载Realtek蓝牙固件，衔接macOS蓝牙服务 |
+| USB网络 | HoRNDIS-Host9.4 | 小米Android手机的USB网络共享 |
+| USB控制器 | AppleUSBXHCIPCI + USBToolBox1.2.0 + 本机映射 | 原生USB控制器配合已确认的内部端口 |
+
+蓝牙选择相关NVRAM变量：`bluetoothExternalDongleFailed`为单字节00，`bluetoothInternalControllerInfo`为14字节00，`bluetoothHostControllerSwitchBehavior`为`always`。同时在Delete中列出对应键，避免旧值影响启动。具体值以仓库config为准。
+
+### 从现象到配置的排查记录
+
+| 阶段 | 观察到的现象 | 最终采用的处理 |
+|---|---|---|
+| 安装与桌面 | 完成系统安装，核显和声音逐步启用 | NootedRed + AppleALC，保留正常工作的AMD启动配置 |
+| 旧Wi-Fi组合 | 输入密码连接时整机卡死 | 换为AirportRTW2.3.0原生Sequoia前端 |
+| USB共享 | 小米开启共享后没有新网络接口 | 原生USB控制器与HoRNDIS-Host9.4 |
+| 蓝牙识别 | 能开开关但没有设备，控制器识别不完整 | Realtek固件、BlueToolFixup和蓝牙选择变量 |
+| 无线共存 | Wi-Fi连接后Enco X3断开，关闭Wi-Fi可恢复 | 针对指定二进制跳过强制Wi-Fi-only策略 |
+| 睡眠后蓝牙 | 屏幕正常唤醒，但USB蓝牙重新枚举后失去有效控制器 | USBX与内部端口修正，之后联合测试通过 |
+| 内置麦克风 | 只有线路输入，ACP没有功能驱动 | 系统内安装AMDMicrophone，实测输入音量条响应 |
+| AirPlay | 曾有单向接收/多输出异常，后续双向正常 | 保留当前EFI，记录用户最新确认结果；未额外添加AirPlay补丁 |
+
+以上是同一台机器的关联观察，不是对每一项改动做完整控制变量实验。保留这些过程，是为了说明最终组合的来源和验证边界。
 
 ## 内置麦克风需要系统内安装
 
@@ -67,6 +126,21 @@ sudo bash "/path/to/project/Tools/Install-Microphone.command"
 - `Tools/交接与维护.command --airplay`：在接收端红米采集AirPlay及coreaudiod日志。
 - `sudo bash Tools/交接与维护.command --cleanup`：只清理本项目的测试日志和临时采集脚本，保留正在使用的驱动及含驱动备份的目录。
 - 固件和驱动升级后需重新验证；正常Wi-Fi和蓝牙不等于AirDrop/AWDL/AirPlay已完整受支持。
+
+### AirPlay两种选择入口
+
+“控制中心→声音”用于选择当前音频输出，选中远端后本机停止播放通常符合该入口行为。“音乐”App里的AirPlay菜单可以选择多个兼容扬声器。对比两台机器能否同时发声时，应使用相同的入口、应用和播放源，而不是仅比较本机是否停声。
+
+本机最新反馈为双向音频互传正常。此状态不自动证明文件AirDrop、随航、通用控制或所有AWDL功能可用。
+
+## v1.0.1发布验证
+
+- 配置通过OpenCore1.0.8对应的ocvalidate校验。
+- 检查所有启用ACPI、UEFI驱动、kext路径及关键加载顺序。
+- 核对AirportRTW官方二进制哈希与共存补丁的版本绑定。
+- 核对本机U盘EFI与私人最终备份的736个文件；公开包身份字段单独清空，主题改为GoldenGate。
+- GitHub仓库与发布包均不包含个人原始日志；SHA256SUMS记录各公开文件，发布页给出压缩包哈希。
+- v1.0.1没有新增核心驱动或内核补丁，主要更新功能状态和工程说明。
 
 ## 致谢与许可
 

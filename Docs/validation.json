@@ -9,12 +9,13 @@
     "Microphone input meter responded; AMDMicrophone 1.0.0d1 loaded",
     "Post-sleep and post-unplug captures contain connected Enco X3 and AMD Digital Microphone",
     "USBX sleep-current property changed from 0 to 2100",
-    "User confirmed RedmiBook sending AirPlay to desktop with simultaneous playback"
+    "User confirmed RedmiBook sending AirPlay to desktop with simultaneous playback",
+    "Latest user confirmation: bidirectional AirPlay audio between desktop and RedmiBook works; no AirPlay-specific EFI patch was applied"
   ],
   "limits": [
-    "AirPlay desktop/Mac Pro sending to RedmiBook: adding RedmiBook mutes both; removing RedmiBook restores desktop; unresolved",
     "Physical USB-A/USB-C mapping is incomplete",
-    "No claim of DRM, AirDrop, HDMI audio, all refresh rates, hibernation or macOS26 support"
+    "No claim of DRM, AirDrop, HDMI audio, all refresh rates, hibernation or macOS26 support",
+    "Earlier temporary AirPlay receive/output-combination issue recovered; cause unconfirmed; long-term multi-speaker synchronization not exhaustively tested"
   ],
   "finalization_changes": [
     "Disabled OpenCore file logs and verbose boot",
@@ -22,5 +23,14 @@
     "Same OpenCore1.0.8 binaries, active drivers and runtime patches as tested14; no untested driver upgrades",
     "Public SMBIOS identity cleared; public theme GoldenGate, owner USB retains ModernView"
   ],
-  "original_raw_logs_published": false
+  "original_raw_logs_published": false,
+  "release": "v1.0.1",
+  "latest_airplay_status": {
+    "date": "2026-11-04",
+    "status": "user-confirmed bidirectional audio working",
+    "earlier_issue": "temporary receive/output-combination anomaly",
+    "cause": "not established",
+    "airplay_specific_EFI_change": false,
+    "AirDrop": "not verified"
+  }
 }
