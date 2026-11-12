@@ -70,5 +70,13 @@
     "file": "Sources/Upstream/Apheleos--HoRNDIS-9.4.tar.gz",
     "sha256": "1e6e7fb796059376892c0985f2434d3d72a85abe8819c4cad278c5f418abfac4",
     "bytes": 42809
+  },
+  {
+    "repo": "weachy/NootedRed",
+    "ref": "v1.2.4",
+    "source_url": "https://codeload.github.com/weachy/NootedRed/tar.gz/v1.2.4",
+    "file": "Sources/Upstream/weachy--NootedRed-v1.2.4.tar.gz",
+    "sha256": "5feccb20558667696bdaa877b1abbfd011b7d911751028737ad28cd3c274d290",
+    "bytes": 3051095
   }
 ]

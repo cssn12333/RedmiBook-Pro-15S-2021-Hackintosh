@@ -1,6 +1,6 @@
 # 配置详解
 
-本文对应v1.0.2实际config。功能组合来自5600H/RTL8852AE这台机器；本次仅增加 `-btlfxboardid` 用于USB蓝牙机型识别，没有升级驱动，也没有为AirPlay新增内核补丁。
+本文对应v1.0.3实际config。5600H/RTL8852AE本机采用weachy NootedRed1.2.4 RELEASE，保留v1.0.2的 `-btlfxboardid` USB蓝牙机型识别。核显更新与QQ验证详见 [GRAPHICS-QQ-VDA.md](GRAPHICS-QQ-VDA.md)。
 
 ## OpenCore与系统标识
 
@@ -32,7 +32,7 @@ SecureBootModel为Disabled，LauncherOption为Disabled。SIP配置为`01000000`�
 
 ## 核显、声音、传感器
 
-- NootedRed0.8.10负责Vega核显，加载位置在AppleALC之前。
+- weachy NootedRed1.2.4 RELEASE负责Vega核显，加载位置在Lilu之后、AppleALC之前。GLFix与VDA按该版默认开启，boot-args继续为 `-btlfxboardid`。用户确认QQ启动问题已解决，硬解格式支持待逐项实测。
 - AppleALC1.9.8负责ALC256，HDEF路径为`PciRoot(0x1)/Pci(0x8,0x1)/Pci(0x0,0x6)`，layout-id67。
 - AMDMicrophone1.0.0d1单独处理ACP数字麦克风，放在系统`/Library/Extensions`，不加入EFI的Kernel/Add。
 - VirtualSMC1.3.8配合SMCBatteryManager、SMCLightSensor；ECEnabler处理EC读取。

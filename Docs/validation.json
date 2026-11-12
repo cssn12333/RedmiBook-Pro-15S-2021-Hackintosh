@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-12",
   "hardware": "XMA2007-BJ / Ryzen 5 5600H / RTL8852AE + USB 0CB8:C549",
   "macOS": "15.7.5 (24G624)",
   "observed": [
@@ -13,29 +13,33 @@
     "Latest user confirmation: bidirectional AirPlay audio between desktop and RedmiBook works; no AirPlay-specific EFI patch was applied",
     "After -btlfxboardid was enabled, active boot args verified; pre/post-sleep controller stays USB, THIRD_PARTY_DONGLE and On; Enco X3 connected after wake",
     "Latest pre/post-sleep Wi-Fi interface remains active with the same IPv4 address; user confirms normal operation",
-    "Successful sleep/wake capture did not run temporary Wi-Fi toggles or bluetoothd restart"
+    "Successful sleep/wake capture did not run temporary Wi-Fi toggles or bluetoothd restart",
+    "2026-11-12: User confirmed the QQ startup problem resolved after the provided weachy NootedRed1.2.4 build with both GLFix and VDA enabled"
   ],
   "limits": [
     "Physical USB-A/USB-C mapping is incomplete",
     "No claim of DRM, AirDrop, HDMI audio, all refresh rates, hibernation or macOS26 support",
-    "Earlier temporary AirPlay receive/output-combination issue recovered; cause unconfirmed; long-term multi-speaker synchronization not exhaustively tested"
+    "Earlier temporary AirPlay receive/output-combination issue recovered; cause unconfirmed; long-term multi-speaker synchronization not exhaustively tested",
+    "Per-codec H.264, HEVC8 and HEVC10 hardware-session checks and repeated sleep testing with weachy1.2.4 have not been individually reported"
   ],
   "finalization_changes": [
     "Disabled OpenCore file logs and verbose boot",
     "Pruned disabled entries and unused root-level kexts/tables/tools",
     "Same OpenCore1.0.8 binaries, active drivers and runtime patches as tested14; no untested driver upgrades",
     "Public SMBIOS identity cleared; public theme GoldenGate, owner USB retains ModernView",
-    "v1.0.2 adds only -btlfxboardid to EFI boot args; no driver binaries or existing runtime patches changed"
+    "v1.0.2 adds only -btlfxboardid to EFI boot args; no driver binaries or existing runtime patches changed",
+    "v1.0.3 replaces only NootedRed with the tested weachy1.2.4 RELEASE and updates its config comment; boot arguments stay -btlfxboardid"
   ],
   "original_raw_logs_published": false,
-  "release": "v1.0.2",
+  "release": "v1.0.3",
   "latest_airplay_status": {
-    "date": "2026-11-04",
-    "status": "user-confirmed bidirectional audio working",
+    "date": "2026-11-12",
+    "status": "later 9061 reproduction attributed by user to desktop sender after phone and M4 Pro comparisons",
     "earlier_issue": "temporary receive/output-combination anomaly",
-    "cause": "not established",
+    "cause": "desktop sender root cause not yet investigated",
     "airplay_specific_EFI_change": false,
-    "AirDrop": "not verified"
+    "AirDrop": "not verified",
+    "receiver": "user comparison tests confirmed receiver can work"
   },
   "latest_bluetooth_sleep_status": {
     "date": "2026-11-04",
@@ -45,5 +49,14 @@
     "after_fix": "USB transport, valid controller identity/firmware, PoweredOn before/after sleep; headset connected after wake; Wi-Fi active",
     "temporary_recovery_used_in_successful_test": false,
     "long_duration_or_repeated_sleep_exhaustively_tested": false
+  },
+  "latest_graphics_status": {
+    "date": "2026-11-12",
+    "driver": "weachy NootedRed1.2.4 RELEASE",
+    "GLFix": "enabled by driver default",
+    "VDA": "enabled by driver default",
+    "QQ": "user confirmed startup issue resolved",
+    "hardware_decoding_sessions": "not individually verified",
+    "new_raw_logs": "not provided"
   }
 }

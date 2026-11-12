@@ -41,8 +41,11 @@
   },
   {
     "bundle": "NootedRed.kext",
-    "version": "0.8.10",
-    "identifier": "org.ChefKiss.NootedRed"
+    "version": "1.2.4",
+    "identifier": "org.ChefKiss.NootedRed",
+    "source": "weachy/NootedRed",
+    "ref": "v1.2.4",
+    "release_url": "https://github.com/weachy/NootedRed/releases/tag/v1.2.4"
   },
   {
     "bundle": "NVMeFix.kext",

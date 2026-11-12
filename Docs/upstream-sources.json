@@ -220,5 +220,15 @@
     "source_url": "https://github.com/akwangl/RedmiBook-Pro-15S-hackintosh/tree/main",
     "source_archive_url": "https://codeload.github.com/akwangl/RedmiBook-Pro-15S-hackintosh/tar.gz/main",
     "license": "No root license retrieved; see upstream individual files and notices"
+  },
+  {
+    "repo": "weachy/NootedRed",
+    "ref": "v1.2.4",
+    "source_url": "https://github.com/weachy/NootedRed/tree/v1.2.4",
+    "source_archive_url": "https://codeload.github.com/weachy/NootedRed/tar.gz/v1.2.4",
+    "license": "ChefKiss Open Knowledge License version 1",
+    "license_file": "Licenses/weachy--NootedRed--LICENSE.md",
+    "license_url": "https://github.com/weachy/NootedRed/blob/v1.2.4/LICENSE.md",
+    "license_ref": "v1.2.4"
   }
 ]
